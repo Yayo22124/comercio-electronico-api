@@ -1,6 +1,15 @@
-// Third Party Imports
 import express from "express";
+
+// Project Imports
+import v1Router from "./routes/index.js";
+import './db/connection.js';
+
+// Third Party Imports
 import cors from "cors";
+import dotenv from "dotenv";
+import morgan from "morgan";
+
+dotenv.config();
 
 // Server
 const app = express();
@@ -14,11 +23,14 @@ const corsOptions = {
 };
 
 // Middlewares
+app.set('trust proxy', 1);
+app.disable('x-powered-by');
+app.use(express.json());
 app.use(cors(corsOptions));
+app.use(morgan('combined'));
 
-app.get("/", (req, res) => {
-  res.send("¡Hola, mundo!");
-});
+// Routes
+app.use('/api', v1Router);
 
 app.listen(port, () => {
   console.log(`Servidor escuchando en http://localhost:${port}`);
