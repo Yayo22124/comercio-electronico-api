@@ -1,0 +1,25 @@
+{
+  "name": "comercio-electronico-api",
+  "version": "0.0.1",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start:prod": "node ./src/index.js",
+    "start:dev": "node --watch ./src/index.js"
+  },
+  "keywords": [
+    "API",
+    "Comercio Electrónico",
+    "SQL"
+  ],
+  "type": "module",
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.19.2"
+  },
+  "devDependencies": {
+    "globals": "^15.9.0"
+  }
+}
